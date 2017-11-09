@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AdminComponent } from './admin.component';
+import { LoginComponent } from './login/login.component';
+
+import { AuthenticationService } from './service/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +11,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  
 }
