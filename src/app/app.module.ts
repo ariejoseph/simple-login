@@ -8,10 +8,11 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './admin.component';
 import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from './service/authentication.service';
+import { AuthGuard } from './guard/authGuard.service';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
-    { path: 'admin', component: AdminComponent },
+    { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
     { path: '', component: LoginComponent },
 ];
 
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-  	AuthenticationService
+  	AuthenticationService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

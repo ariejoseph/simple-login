@@ -12,9 +12,9 @@ export class AdminComponent {
   	private router: Router,
   	private authService: AuthenticationService) {
   	
-  	if(sessionStorage.getItem('user') == null) {
-  		this.router.navigate(['login']);
-  	}
+  	// if(sessionStorage.getItem('user') == null) {
+  	// 	this.router.navigate(['login']);
+  	// }
   }
 
   doLogout() {
