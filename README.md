@@ -1,6 +1,7 @@
 # Btn
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.7.
+Login App for admin only! (admin/admin)
 
 ## Development server
 
