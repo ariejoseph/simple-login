@@ -12,7 +12,7 @@ import { AuthenticationService } from './service/authentication.service';
 })
 export class AppComponent {
   app: string = 'Home';
-  login = false;
+  login: boolean;
   constructor(
     private router: Router,
     private authService: AuthenticationService) {
