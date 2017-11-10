@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { AppComponent } from '../app.component';
 import { AuthenticationService } from '../service/authentication.service';
 
 @Component({
@@ -12,11 +13,12 @@ export class LoginComponent {
   model: any = {};
   returnUrl: string;
 
-  test() {
+  testLogin() {
     console.log(this.model);
     if(this.model.username == 'admin' && this.model.password == 'admin') {
       this.router.navigate(['/admin']);
       sessionStorage.setItem('currentUser', this.model.username);
+      this.app.login = true;
     } else {
       console.log('bad credentials')
       this.router.navigate(['/login']);
@@ -25,11 +27,8 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService) {
-    if(!false) {
-      console.log('benar');
-    }
-  }
+    private authenticationService: AuthenticationService,
+    private app: AppComponent) {}
 
   ngOnInit() {
     if(sessionStorage.getItem('currentUser')) {

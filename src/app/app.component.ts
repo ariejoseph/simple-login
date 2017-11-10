@@ -11,5 +11,17 @@ import { AuthenticationService } from './service/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name: string = 'Home';
+  app: string = 'Home';
+  login = false;
+  constructor(
+    private router: Router,
+    private authService: AuthenticationService) {
+    console.log('app constructor');
+  }
+
+  doLogout() {
+    this.authService.logout();
+    this.login = false;
+    this.router.navigate(['/login']);
+  }
 }

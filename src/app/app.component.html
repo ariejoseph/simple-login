@@ -2,10 +2,11 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" routerLink="/">{{name}}</a>
+      <a class="navbar-brand" routerLink="/">{{app}}</a>
     </div>
     <ul class="nav navbar-nav">
-      <li routerLinkActive="active"><a [routerLink]="['/login']">Login</a></li>
+      <li routerLinkActive="active" *ngIf="!login"><a [routerLink]="['/login']">Login</a></li>
+      <li *ngIf="login"><a routerLink="" (click)="doLogout()">Logout</a></li>
       <li><a routerLink="">Page 2</a></li>
       <li><a routerLink="">Page 3</a></li>
     </ul>
