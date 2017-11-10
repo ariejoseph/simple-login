@@ -18,7 +18,7 @@ export class AdminComponent {
   }
 
   doLogout() {
-  	this.authService.logout;
-  	this.router.navigate(['/']);
+  	this.authService.logout();
+  	this.router.navigate(['/login']);
   }
 }

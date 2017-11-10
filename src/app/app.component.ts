@@ -11,5 +11,5 @@ import { AuthenticationService } from './service/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+  name: string = 'Home';
 }

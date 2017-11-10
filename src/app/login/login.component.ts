@@ -16,7 +16,7 @@ export class LoginComponent {
     console.log(this.model);
     if(this.model.username == 'admin' && this.model.password == 'admin') {
       this.router.navigate(['/admin']);
-      sessionStorage.setItem('user', this.model.username);
+      sessionStorage.setItem('currentUser', this.model.username);
     } else {
       console.log('bad credentials')
       this.router.navigate(['/login']);
@@ -32,9 +32,14 @@ export class LoginComponent {
   }
 
   ngOnInit() {
-    // reset login status
-    this.authenticationService.logout();
-    sessionStorage.clear();
+    if(sessionStorage.getItem('currentUser')) {
+      var url = '/'+sessionStorage.getItem('currentUser');
+      this.router.navigate([url]);
+    } else {
+      // reset login status
+      this.authenticationService.logout();
+      sessionStorage.clear();
+    }
   }
 
   login() {
