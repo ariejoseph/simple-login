@@ -15,12 +15,12 @@ export class LoginComponent {
 
   testLogin() {
     console.log(this.model);
-    if(this.model.username == 'admin' && this.model.password == 'admin') {
-      this.router.navigate(['/admin']);
+    if(this.model.username != null && this.model.password != null) {
+      this.router.navigate(['/']);
       sessionStorage.setItem('currentUser', this.model.username);
       this.app.login = true;
     } else {
-      console.log('bad credentials')
+      console.log('bad credentials');
       this.router.navigate(['/login']);
     }
   }
@@ -31,9 +31,10 @@ export class LoginComponent {
     private app: AppComponent) {}
 
   ngOnInit() {
-    if(sessionStorage.getItem('currentUser')) {
-      var url = '/'+sessionStorage.getItem('currentUser');
-      this.router.navigate([url]);
+    if(sessionStorage.getItem('currentUser') == 'admin') {
+      this.router.navigate(['/admin']);
+    } else if(sessionStorage.getItem('currentUser') != null) {
+      this.router.navigate(['/user']);
     } else {
       // reset login status
       this.authenticationService.logout();

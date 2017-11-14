@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { AuthenticationService } from './service/authentication.service';
+import { AppComponent } from '../app.component';
+import { AuthenticationService } from '../service/authentication.service';
 
 @Component({
 	selector: 'app-root',
-  template: 'Hello {{name}}!'
+  template: '<p>Admin Page<br>Hello {{name}}!'
 })
 export class AdminComponent {
   name = sessionStorage.getItem('currentUser');

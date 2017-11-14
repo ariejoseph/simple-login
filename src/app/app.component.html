@@ -7,10 +7,10 @@
     <ul class="nav navbar-nav">
       <li routerLinkActive="active" *ngIf="!login"><a [routerLink]="['/login']">Login</a></li>
       <li *ngIf="login"><a routerLink="" (click)="doLogout()">Logout</a></li>
-      <li><a routerLink="">Page 2</a></li>
-      <li><a routerLink="">Page 3</a></li>
+      <li routerLinkActive="active"><a routerLink="/admin">Admin</a></li>
+      <li routerLinkActive="active"><a routerLink="/user">User</a></li>
     </ul>
   </div>
 </nav>
-
+{{message}}
 <router-outlet></router-outlet>
