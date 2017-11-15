@@ -12,5 +12,5 @@
     </ul>
   </div>
 </nav>
-{{message}}
+<div *ngIf="message" [ngClass]="['alert', 'alert-danger']">{{message.text}}</div>
 <router-outlet></router-outlet>

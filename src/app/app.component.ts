@@ -4,6 +4,7 @@ import { AdminComponent } from './page/admin.component';
 import { LoginComponent } from './login/login.component';
 
 import { AuthenticationService } from './service/authentication.service';
+import { AdminGuard } from './guard/adminGuard.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,22 @@ import { AuthenticationService } from './service/authentication.service';
 })
 export class AppComponent {
   app: string = 'SS';
-  message: string;
+  message: any;
   login: boolean;
   constructor(
     private router: Router,
-    private authService: AuthenticationService) {
+    private authService: AuthenticationService,
+    private adminGuardService: AdminGuard) {
     console.log('app constructor');
+    if(sessionStorage.getItem('currentUser')) {
+      this.login = true;
+    } else {
+      this.login = false;
+    }
+  }
+
+  ngOnInit() {
+    this.adminGuardService.getMessage().subscribe(message => {this.message = message});
   }
 
   doLogout() {
